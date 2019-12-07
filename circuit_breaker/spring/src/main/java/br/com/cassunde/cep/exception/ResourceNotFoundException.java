@@ -1,4 +1,4 @@
-package br.com.cassunde.cep.service.exception;
+package br.com.cassunde.cep.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
