@@ -2,7 +2,7 @@
 
 Esse e um Design Pattern que ajudará seu serviço a lidar com a indisponibilidade ou alta latência dos seus serviços parceiros.
 
-Imagine que um serviço que seu projeto usa fique fora do ar, **se sem esse serviço seu projeto também parará então existe uma grande possibilidade de esse serviço deva está dentro do seu projeto**, caso não temos que achar uma maneira de vivermos mesmo que momentaneamente sem esse serviço parceiro
+Imagine que um serviço que seu projeto usa fique fora do ar, **se sem esse serviço seu projeto também parará então existe uma grande possibilidade de que esse serviço deva está dentro do seu projeto**, caso não temos que achar uma maneira de vivermos mesmo que momentaneamente sem esse serviço parceiro
 
 ## O Exemplo
 
