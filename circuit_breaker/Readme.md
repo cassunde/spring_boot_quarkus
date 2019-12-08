@@ -9,3 +9,5 @@ Imagine que um serviço que seu projeto usa fique fora do ar, **se sem esse serv
 Nessa pasta implemento um exemplo onde o serviço tem que entregar um endereço apartir de um cep, esse exemplo usa uma api pública para resgatar esses valores, porém nosso **circuit breaker** ira tratar o problema se a mesma estive off.
 
 Basicamente todo cep resgatado da api externa e salvo em um banco Mongodb, quando a api estiver off o fallback irá buscar no banco local, assim aumentando a disponibilidade do seu microserviço.
+
+Para cada exemplo voce deve ter o mongodb rodando na porta **27017**
