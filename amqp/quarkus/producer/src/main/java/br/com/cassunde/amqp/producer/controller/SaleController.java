@@ -29,6 +29,6 @@ public class SaleController {
 
         saleShipper.send();
 
-        return Response.status(200).entity("{\"message\":\"ISSO\"}").build();
+        return Response.status(200).entity("{\"message\":\"OK\"}").build();
     }
 }

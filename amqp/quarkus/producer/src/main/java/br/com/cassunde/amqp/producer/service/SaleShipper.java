@@ -17,7 +17,6 @@ public class SaleShipper {
 
             ObjectMapper json = new ObjectMapper();
             String jsonSale = json.writeValueAsString(new Sale("TV", new BigDecimal("1500"),1));
-            System.out.println(jsonSale);
             new QueueManager().send("sales",jsonSale);
 
         } catch (JsonProcessingException e) {
