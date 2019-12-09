@@ -7,6 +7,7 @@ import org.eclipse.microprofile.faulttolerance.Fallback;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.ws.rs.client.ClientBuilder;
+import java.util.Optional;
 
 @Dependent
 public class CepService {
@@ -28,11 +29,7 @@ public class CepService {
 
         CepResponse cepFoundDatabase = cepRepository.findById(cep);
 
-        if( cepFoundDatabase != null ){
-
-            return cepFoundDatabase;
-        }
-
-        throw  new RuntimeException("Cep not found");
+        return Optional.ofNullable(cepFoundDatabase)
+                .orElse(new CepResponse());
     }
 }
