@@ -11,20 +11,20 @@ import javax.inject.Inject;
 public class QueueStart {
 
     @Inject
-    QueueManager<Sale> manager;
+    QueueManager<Sale> managerQueueSale;
 
     void onStart(@Observes StartupEvent ev) {
 
         try {
 
-            manager.consumer("sales", Sale.class);
+            managerQueueSale.consumer("sales", Sale.class);
         }catch (Exception e){
 
             e.printStackTrace();
         }
     }
 
-    public void receive(@Observes Sale sale){
+    public void receiveSale(@Observes @PayLoad Sale sale){
 
         System.out.println(sale);
     }

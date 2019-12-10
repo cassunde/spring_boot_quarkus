@@ -14,20 +14,28 @@ public class QueueManager<T> {
     @Inject
     QueueConsumer<T> queueConsumer;
 
-    public void consumer(String queue, Class<T> valueType) throws IOException, TimeoutException {
+    public void consumer(String queue, Class<T> valueType) {
 
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-        factory.setHost("127.0.0.1");
+        try {
 
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-        channel.queueDeclare(queue, false, false, false, null);
+            ConnectionFactory factory = new ConnectionFactory();
+            factory.setUsername("guest");
+            factory.setPassword("guest");
+            factory.setHost("127.0.0.1");
 
-        ObjectMapper json = new ObjectMapper();
+            Connection connection = factory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(queue, false, false, false, null);
 
-        queueConsumer.of(channel, valueType);
-        channel.basicConsume(queue, true, queueConsumer);
+            ObjectMapper json = new ObjectMapper();
+
+            queueConsumer.of(channel, valueType);
+            channel.basicConsume(queue, true, queueConsumer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+
     }
 }

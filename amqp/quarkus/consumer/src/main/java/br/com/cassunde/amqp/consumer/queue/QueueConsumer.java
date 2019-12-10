@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class QueueConsumer<T> implements Consumer, Serializable {
 
     @Inject
+    @PayLoad
     Event<T> event;
 
     private Class<T> valueType;
