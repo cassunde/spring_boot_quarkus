@@ -27,7 +27,7 @@ public class SaleController {
 
         Sale sale = new Sale("TV 23", new BigDecimal("1500"),1);
 
-        saleShipper.send();
+        saleShipper.send(sale);
 
         return Response.status(200).entity("{\"message\":\"OK\"}").build();
     }
