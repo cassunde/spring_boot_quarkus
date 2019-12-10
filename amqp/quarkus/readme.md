@@ -8,6 +8,8 @@ Esse projeto implementa a solução usando as seguintes tecnologias:
 - Observer
 - Qualifier
 
+No projeto **Consumer** isso ficou mais claro, pois a aplicação deve está o tempo todo escutando a fila.
+
 ## Testando
 
 - Levante rabbitMQ
