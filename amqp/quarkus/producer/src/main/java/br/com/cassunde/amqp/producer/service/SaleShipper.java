@@ -15,16 +15,11 @@ public class SaleShipper {
 
         try {
 
-            Tax tax = new Tax(sale);
-
             ObjectMapper json = new ObjectMapper();
-            String jsonSale = json.writeValueAsString( sale );
-            String jsonTax  = json.writeValueAsString(tax);
+            String jsonSale = json.writeValueAsString(sale);
 
             QueueManager queueManager = new QueueManager();
-
             queueManager.send("sales",jsonSale);
-            queueManager.send("taxes",jsonTax);
 
         } catch (JsonProcessingException e) {
             e.printStackTrace();
