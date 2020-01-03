@@ -12,7 +12,7 @@ Todos os exemplos estarei usando Java com Spring Boot e Quarkus.
 Será desenvolvido exemplos para demonstrar:
 
 - Circuit Breaker
-- Menssageria
+- Mensageiria
 - Gateway
 - Logs
 - Contract
