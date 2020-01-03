@@ -15,13 +15,7 @@ public class QueueStart {
 
     void onStart(@Observes StartupEvent ev) {
 
-        try {
-
-            managerQueueSale.consumer("sales", Sale.class);
-        }catch (Exception e){
-
-            e.printStackTrace();
-        }
+        managerQueueSale.consumer("sales", Sale.class);
     }
 
     public void receiveSale(@Observes @PayLoad Sale sale){
