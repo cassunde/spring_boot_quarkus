@@ -21,7 +21,7 @@ No projeto **Consumer** isso ficou mais claro, pois a aplicação deve está o t
 
 > ./mvnw quarkus:dev
 
-- Chame a seguinte URL
+- Chame a seguinte URL usando POST
 
 > http://localhost:8080/sales
 
