@@ -1,4 +1,4 @@
-## Helth
+## Health
 
 Em nosso ecossistema precisamos monitorar a saúde de nossas aplicações para tomar ações quando alguma ficar **off**.
 
