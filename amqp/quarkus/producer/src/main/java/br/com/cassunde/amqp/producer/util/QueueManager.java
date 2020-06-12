@@ -3,18 +3,30 @@ package br.com.cassunde.amqp.producer.util;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+import javax.enterprise.context.Dependent;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+@Dependent
 public class QueueManager {
+
+    @ConfigProperty(name = "taok.quarkus.rabbit.user")
+    String user;
+
+    @ConfigProperty(name = "taok.quarkus.rabbit.password")
+    String password;
+
+    @ConfigProperty(name = "taok.quarkus.rabbit.host")
+    String host;
 
     public void send(String queue, String message){
 
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-        factory.setHost("127.0.0.1");
+        factory.setUsername(user);
+        factory.setPassword(password);
+        factory.setHost(host);
 
         try (Connection connection = factory.newConnection()) {
             Channel channel = connection.createChannel();

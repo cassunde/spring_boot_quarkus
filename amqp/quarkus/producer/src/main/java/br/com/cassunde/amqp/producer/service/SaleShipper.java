@@ -7,9 +7,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 
 @Dependent
 public class SaleShipper {
+
+    @Inject
+    QueueManager queueManager;
 
     public void send(Sale sale){
 
@@ -18,7 +22,6 @@ public class SaleShipper {
             ObjectMapper json = new ObjectMapper();
             String jsonSale = json.writeValueAsString(sale);
 
-            QueueManager queueManager = new QueueManager();
             queueManager.send("sales",jsonSale);
 
         } catch (JsonProcessingException e) {

@@ -1,0 +1,15 @@
+version: '2'
+services:
+  rabbitmq1:
+    image: rabbitmq:3-management
+    container_name: rabbitmq1
+    hostname: rabbitmq1
+    ports:
+      - 15672:15672
+      - 5672:5672
+    network_mode: "bridge"
+    volumes:
+     - $PWD/storage/rabbitmq1:/var/lib/rabbitmq
+    environment:
+     - RABBITMQ_DEFAULT_USER=guest
+     - RABBITMQ_DEFAULT_PASS=guest
