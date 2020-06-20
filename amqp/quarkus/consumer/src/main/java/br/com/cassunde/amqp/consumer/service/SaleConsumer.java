@@ -3,8 +3,8 @@ package br.com.cassunde.amqp.consumer.service;
 import br.com.cassunde.amqp.consumer.model.Persona;
 import br.com.cassunde.amqp.consumer.model.Persona2;
 import br.com.cassunde.amqp.consumer.model.Sale;
-import br.com.cassunde.amqp.consumer.taok.amqp.rabbit.RabbitListenerConfiguration;
-import br.com.cassunde.amqp.consumer.taok.amqp.rabbit.RabbitMessage;
+import io.quarkus.rabbit.client.RabbitListenerConfiguration;
+import io.quarkus.rabbit.client.RabbitMessage;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;

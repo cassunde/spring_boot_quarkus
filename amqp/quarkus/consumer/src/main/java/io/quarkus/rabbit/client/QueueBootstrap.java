@@ -1,4 +1,4 @@
-package br.com.cassunde.amqp.consumer.taok.amqp.rabbit;
+package io.quarkus.rabbit.client;
 
 import io.quarkus.runtime.StartupEvent;
 import org.reflections.Reflections;

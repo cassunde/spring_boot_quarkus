@@ -1,9 +1,10 @@
-package br.com.cassunde.amqp.consumer.taok.amqp.rabbit;
+package io.quarkus.rabbit.client;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.Dependent;
@@ -18,6 +19,15 @@ public class QueueManager {
     @Inject
     Event<RabbitMessage> event;
 
+    @ConfigProperty(name = "quarkus.rabbit.user")
+    String user;
+
+    @ConfigProperty(name = "quarkus.rabbit.password")
+    String password;
+
+    @ConfigProperty(name = "quarkus.rabbit.host")
+    String host;
+
     Logger logger = Logger.getLogger(QueueManager.class);
 
     public <T> void consumer(String queue, Class<T> valueType) {
@@ -26,9 +36,9 @@ public class QueueManager {
 
             //TODO create a producer using properties
             ConnectionFactory factory = new ConnectionFactory();
-            factory.setUsername("guest");
-            factory.setPassword("guest");
-            factory.setHost("127.0.0.1");
+            factory.setUsername(user);
+            factory.setPassword(password);
+            factory.setHost(host);
 
             Connection connection = factory.newConnection();
             Channel channel = connection.createChannel();
@@ -37,7 +47,7 @@ public class QueueManager {
             logger.infof("Listener configured to queue: %s", queue);
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 String message = new String(delivery.getBody(), "UTF-8");
-                sendMessage(message,delivery.getEnvelope().getRoutingKey(), valueType);
+                sendListenerMessage(message,delivery.getEnvelope().getRoutingKey(), valueType);
             };
 
             channel.queueDeclare(queue, false, false, false, null);
@@ -49,7 +59,7 @@ public class QueueManager {
         }
     }
 
-    private void sendMessage(String message, String queue, Class<? extends Object> valueType){
+    private void sendListenerMessage(String message, String queue, Class<? extends Object> valueType){
         RabbitMessage rabbitMessage = new RabbitMessage(message);
         event.select(getTypeBinding(queue, valueType)).fire(rabbitMessage);
     }

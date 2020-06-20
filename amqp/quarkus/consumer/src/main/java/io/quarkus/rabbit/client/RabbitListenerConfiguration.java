@@ -1,4 +1,4 @@
-package br.com.cassunde.amqp.consumer.taok.amqp.rabbit;
+package io.quarkus.rabbit.client;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;
