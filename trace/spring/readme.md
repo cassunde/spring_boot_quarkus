@@ -1,24 +1,31 @@
-## Quarkus
+## Spring-Boot
 
 Esse projeto implementa a solução usando as seguintes tecnologias:
  
-- [RabbitMQ](https://www.rabbitmq.com/)
+- [Zipkin](https://zipkin.io/)
+- [Sleuth](https://spring.io/projects/spring-cloud-sleuth)
 
 ## Testando
 
-- Levante rabbitMQ
+- Levante Zipkin
 
-> docker run -d --hostname my-rabbit --name some-rabbit rabbitmq:3-management
+> docker run -itd --name trace -p 9411:9411 openzipkin/zipkin
 
 - Start os projetos spring-boot com o comando abaixo em cada projeto
 
-> ./gradlew bootRun
+> ./mvnw spring-boot:run
 
-- Chame a seguinte URL usando POST
+- Chame a seguinte URL usando GET
 
-> http://localhost:8080/sales
+> http://localhost:8080/
 
-URL acima irá simboliza uma nova venda, assim disparando toda a estrutura de mensageria.
+URL acima irá logar e chamar o segundo serviço que está rodando na porta 8081
 
-### Consumer
-O projeto consumer está rodando na porta 8090 e escutando todas as mensagens enviadas para a fila `sales` 
+Após executar e receber o retorno mais ou menos assim
+
+```json
+{
+  "Exemplo1",
+  "Exemplo2"
+}
+```
