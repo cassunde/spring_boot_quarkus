@@ -8,8 +8,7 @@ Basicamente para cada requisição será criada um **ID** e esse identificador s
 
 **O Exemplo**
 
-Nosso cenário e bem simples, teremos 2 serviços e o **serviço a** chama o **servico b** que retorna um json que o **servico a** que retorna esse json para o usuário.
+Nosso cenário e bem simples, teremos 2 serviços e o **serviço A** chama o **servico B** que retorna um json para o **servico A** que entrega esse json para o usuário.
 
-Para que consigamos observar esse rastreamento usaremos algumas ferramentas para nos auxiliar como o Zipkin.
+Para observarmos esse rastreamento usaremos algumas ferramentas para nos auxiliar como o [Zipkin](https://zipkin.io/) para Spring e o [Jaeger](https://www.jaegertracing.io/) para o Quarkus
 
-Acesse cada exemplo e faça os testes.
