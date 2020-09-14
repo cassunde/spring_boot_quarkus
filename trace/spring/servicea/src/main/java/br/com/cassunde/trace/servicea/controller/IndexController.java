@@ -16,7 +16,7 @@ public class IndexController {
     @Autowired
     private FetcherServiceB fetcherServiceB;
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public ResponseEntity index(){
 
         logger.info("Hello!! Service A");
