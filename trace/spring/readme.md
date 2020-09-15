@@ -1,7 +1,7 @@
 ## Spring-Boot
 
 Esse projeto implementa a solução usando as seguintes tecnologias:
- 
+
 - [Zipkin](https://zipkin.io/)
 - [Sleuth](https://spring.io/projects/spring-cloud-sleuth)
 
@@ -29,3 +29,7 @@ Após executar e receber o retorno mais ou menos assim
   "Exemplo2"
 }
 ```
+
+Quando acessarmos o endereço do Zipkin http://localhost:9411/zipkin/ conseguiremos visualizar os serviços da seguinte forma:
+
+![](zipkin.png)

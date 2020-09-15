@@ -29,3 +29,8 @@ Após executar e receber o retorno mais ou menos assim
   "Exemplo2"
 }
 ```
+
+Quando acessarmos o endereço do Jaeger http://localhost:16686/ conseguiremos visualizar os serviços da seguinte forma:
+
+![](jaeger.png)
+
