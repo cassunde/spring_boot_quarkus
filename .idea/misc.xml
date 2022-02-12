@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/amqp/quarkus/consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/amqp/quarkus/producer/pom.xml" />
+        <option value="$PROJECT_DIR$/trace/spring/servicea/pom.xml" />
+        <option value="$PROJECT_DIR$/trace/spring/serviceb/pom.xml" />
+        <option value="$PROJECT_DIR$/trace/quarkus/servicea/pom.xml" />
+        <option value="$PROJECT_DIR$/trace/quarkus/serviceb/pom.xml" />
+        <option value="$PROJECT_DIR$/health/quarkus/pom.xml" />
+        <option value="$PROJECT_DIR$/circuit_breaker/quarkus/pom.xml" />
+      </list>
+    </option>
+  </component>
+</project>

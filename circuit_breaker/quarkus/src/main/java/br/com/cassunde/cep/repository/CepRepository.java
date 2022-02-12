@@ -12,9 +12,7 @@ public class CepRepository implements PanacheMongoRepositoryBase<CepResponse, St
 
     @Override
     public void persist(CepResponse cepResponse) {
-
         try {
-
             cepResponse.persist();
         }catch (MongoWriteException e){
 
