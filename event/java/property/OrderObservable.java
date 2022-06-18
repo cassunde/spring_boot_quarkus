@@ -7,7 +7,6 @@ public class OrderObservable {
 
     private PropertyChangeSupport changeSupport;
 
-    private String news;
     private Order order;
 
     public OrderObservable() {
@@ -29,6 +28,6 @@ public class OrderObservable {
 
     public void sendNotification(Order order){
         this.changeSupport.firePropertyChange("news", this.order, order);
-        this.news = news;
+        this.order = order;
     }
 }
