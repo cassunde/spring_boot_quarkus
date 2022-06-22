@@ -7,6 +7,11 @@ public class CreateFiscalNoteOrderObserver implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         System.out.println("Create final Note");
-        System.out.println(evt.getNewValue());
+        Order order = convert(evt.getNewValue());
+        System.out.println(order.getAmount());
+    }
+
+    public <T> T convert(Object obj){
+        return (T) obj;
     }
 }

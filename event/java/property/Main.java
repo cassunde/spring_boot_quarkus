@@ -13,7 +13,7 @@ public class Main {
         /*
         * Classe que vai representar um Observable da Order, aqui vamos inicia-lo passando o estado inicial da ordem
         * */
-        OrderObservable orderObservable =  new OrderObservable(order);
+        OrderObservable orderObservable =  new OrderObservable();
 
         /*
         * Registrando quem tem o interesse de saber com uma alteração
