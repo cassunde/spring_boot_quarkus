@@ -4,17 +4,22 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.concurrent.CompletableFuture;
 
-public class SendEmailOrderObserver implements PropertyChangeListener {
+public class EmailSender implements PropertyChangeListener {
     @Override
-    public void propertyChange(PropertyChangeEvent evt) {
+    public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
 
         CompletableFuture.runAsync(()->{
+
+            System.out.println("Comecando a enviar email");
             try {
                 Thread.sleep(5000);
-                System.out.println("Disparar email para cliente");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            Order order = (Order) propertyChangeEvent.getNewValue();
+            System.out.println(order);
+
         });
     }
 }

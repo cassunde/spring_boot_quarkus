@@ -5,21 +5,17 @@ import java.beans.PropertyChangeSupport;
 
 public class OrderObservable {
 
-    private PropertyChangeSupport changeSupport;
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
-    public OrderObservable() {
-        this.changeSupport = new PropertyChangeSupport(this);
+    public void addObserver(PropertyChangeListener propertyChangeListener){
+        changeSupport.addPropertyChangeListener(propertyChangeListener);
     }
 
-    public void addObserver(PropertyChangeListener observer){
-        this.changeSupport.addPropertyChangeListener(observer);
+    public void removeObserver(PropertyChangeListener propertyChangeListener){
+        changeSupport.removePropertyChangeListener(propertyChangeListener);
     }
 
-    public void removeObserver(PropertyChangeListener observer){
-        this.changeSupport.removePropertyChangeListener(observer);
-    }
-
-    public void sendNotification(Order order){
-        this.changeSupport.firePropertyChange("news", null, order);
+    public void fire(Order order){
+        changeSupport.firePropertyChange("Update Status", null, order);
     }
 }
